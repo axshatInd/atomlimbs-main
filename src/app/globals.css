@@ -115,7 +115,7 @@ body {
   background-size: cover;
 }
 
-.buy-now-cta {
+.run-now-cta {
   position: fixed;
   bottom: 4em;
   left: 50%;
@@ -127,7 +127,7 @@ body {
   align-items: center;
 }
 
-.buy-now-cta button {
+.run-now-cta button {
   background: rgb(28, 28, 28);
   border: none;
   outline: none;

@@ -57,7 +57,7 @@ export default function LandingPage() {
       stagger: 0.2,
     });
 
-    gsap.from(".info, .buy-now-cta, .prev-imgs > div, .marquee", {
+    gsap.from(".info, .run-now-cta, .prev-imgs > div, .marquee", {
       duration: 1,
       opacity: 0,
       y: 100,
@@ -70,10 +70,10 @@ export default function LandingPage() {
   return (
     <main>
       <div className="navbar">
-        <div className="site-info">elevated</div>
+        <div className="site-info">atomlimbs</div>
         <div className="site-menu">
-          <div className="menu-item">projects</div>
-          <div className="menu-item">about</div>
+          <div className="menu-item">Goal</div>
+          <div className="menu-item">about us</div>
           <div className="menu-item">contact</div>
         </div>
       </div>
@@ -90,8 +90,8 @@ export default function LandingPage() {
           vitae quas nam iusto fugit id accusantium tenetur nesciunt ducimus?
         </p>
       </div>
-      <div className="buy-now-cta">
-        <button>Buy Now</button>
+      <div className="run-now-cta">
+        <button>Run Now</button>
       </div>
       <div className="prev-imgs">
         <div className="prev-img prev-1"></div>
