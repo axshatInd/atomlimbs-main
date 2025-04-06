@@ -1,11 +1,24 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import Image from 'next/image';
-import { gsap } from 'gsap';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { gsap } from "gsap";
 
 export default function LandingPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    // Check if we're on mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobile);
+
     // Text animation using the global anime variable
     const textWrapper = document.querySelector(".title");
     if (textWrapper && window.anime) {
@@ -26,7 +39,7 @@ export default function LandingPage() {
     // GSAP animations
     gsap.to(".container", {
       duration: 2,
-      top: "50vh",
+      top: isMobile ? "40vh" : "50vh",
       ease: "expo.inOut",
       delay: 0.5,
     });
@@ -34,11 +47,12 @@ export default function LandingPage() {
     gsap.to(".container", {
       duration: 2,
       scale: 1,
-      top: "25vh",
+      top: isMobile ? "15vh" : "20vh", // Adjusted to reduce gap
       ease: "expo.inOut",
       delay: 3,
     });
 
+    // Rest of animations remain the same
     gsap.from(".navbar > div", {
       duration: 1.6,
       opacity: 0,
@@ -65,6 +79,11 @@ export default function LandingPage() {
       delay: 4,
       stagger: 0.1,
     });
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   return (
@@ -82,12 +101,16 @@ export default function LandingPage() {
           <img src="/images/drone-hero.png" alt="Drone" />
         </div>
       </div>
-      <p className="title">Reach The Fullest</p>
+      <p className="title">REACH THE FULLEST</p>
       <div className="info">
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil,
-          accusantium. Eveniet cupiditate at quae molestias, ipsa cumque quidem
-          vitae quas nam iusto fugit id accusantium tenetur nesciunt ducimus?
+          AtomLimbs is a project focused on the development of advanced
+          prosthetic technologies. We specialize in creating innovative,
+          high-performance prosthetic limbs that incorporate cutting-edge
+          technologies like artificial intelligence and robotics to provide
+          users with enhanced mobility, comfort, and control. Our goal is to
+          improve the quality of life for individuals with limb loss by offering
+          more functional and intuitive prosthetic solutions.
         </p>
       </div>
       <div className="run-now-cta">
@@ -100,9 +123,9 @@ export default function LandingPage() {
       </div>
       <div className="marquee">
         <span>
-          how we work ↗ try now ↗ how we work ↗ try now ↗ how we work ↗ try now ↗
-          how we work ↗ try now ↗ how we work ↗ try now ↗ how we work ↗ try now ↗
-          how we work ↗ try now ↗ how we work ↗ try now ↗
+          how it works ↗ try now ↗ how it works ↗ try now ↗ how it works ↗ try
+          now ↗ how it works ↗ try now ↗ how we works ↗ try now ↗ how it works ↗
+          try now ↗ how it works ↗ try now ↗ how it works ↗ try now ↗
         </span>
       </div>
     </main>
