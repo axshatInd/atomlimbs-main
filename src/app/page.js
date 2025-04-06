@@ -2,37 +2,28 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
-// Import anime correctly
 import { gsap } from 'gsap';
 
 export default function Home() {
   useEffect(() => {
-    // Dynamically import anime.js to ensure it's only loaded on the client side
-    const animateText = async () => {
-      const animeModule = await import('animejs');
-      const anime = animeModule.default;
-      
-      // Text animation
-      const textWrapper = document.querySelector(".title");
-      if (textWrapper) {
-        textWrapper.innerHTML = textWrapper.textContent.replace(
-          /\S/g,
-          "<span class='letter'>$&</span>"
-        );
+    // Text animation using the global anime variable
+    const textWrapper = document.querySelector(".title");
+    if (textWrapper && window.anime) {
+      textWrapper.innerHTML = textWrapper.textContent.replace(
+        /\S/g,
+        "<span class='letter'>$&</span>"
+      );
 
-        anime.timeline().add({
-          targets: ".title .letter",
-          translateY: [-200, 0],
-          easing: "easeOutExpo",
-          duration: 1500,
-          delay: (el, i) => 3500 + 50 * i,
-        });
-      }
-    };
-    
-    animateText();
+      window.anime({
+        targets: ".title .letter",
+        translateY: [-200, 0],
+        easing: "easeOutExpo",
+        duration: 1500,
+        delay: (el, i) => 3500 + 50 * i,
+      });
+    }
 
-    // GSAP animations
+    // GSAP animations remain unchanged
     gsap.to(".container", {
       duration: 2,
       top: "50vh",
