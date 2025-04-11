@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
   const [isMobile, setIsMobile] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     // Check if we're on mobile
@@ -91,9 +93,24 @@ export default function LandingPage() {
       <div className="navbar">
         <div className="site-info">atomlimbs</div>
         <div className="site-menu">
-          <div className="menu-item">Goal</div>
-          <div className="menu-item">about us</div>
-          <div className="menu-item">contact</div>
+          <div 
+            className="menu-item cursor-pointer hover:text-gray-300 transition-colors" 
+            onClick={() => router.push('/goal')}
+          >
+            Goal
+          </div>
+          <div 
+            className="menu-item cursor-pointer hover:text-gray-300 transition-colors" 
+            onClick={() => router.push('/about-us')}
+          >
+            about us
+          </div>
+          <div 
+            className="menu-item cursor-pointer hover:text-gray-300 transition-colors" 
+            onClick={() => router.push('/contact')}
+          >
+            contact
+          </div>
         </div>
       </div>
       <div className="container">
