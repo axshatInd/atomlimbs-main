@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import Navbar from '@/components/Navbar';
 
 export default function AboutUsPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -28,8 +27,8 @@ export default function AboutUsPage() {
       targets: ".title .letter",
       translateY: [-200,0],
       easing: "easeOutExpo",
-      duration: 1500,
-      delay: (el, i) => 3500 + 50 * i,
+      duration: 1000,
+      delay: (el, i) => 500 + 50 * i,
     });
    } 
 
