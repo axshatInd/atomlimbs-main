@@ -2,8 +2,8 @@ import './globals.css';
 import Script from 'next/script';
 
 export const metadata = {
-  title: 'Product Landing Page',
-  description: 'Animated product landing page',
+  title: 'AtomLimbs',
+  description: 'Virtual Limb Controlled by AI',
 }
 
 export default function RootLayout({ children }) {
