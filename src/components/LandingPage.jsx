@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import FloatingDrone from "./FloatingDrone";
 
 export default function LandingPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -18,7 +17,6 @@ export default function LandingPage() {
     }
     
     // Kill any GSAP animations
-    gsap.killTweensOf(".container");
     gsap.killTweensOf(".navbar > div");
     gsap.killTweensOf(".site-menu > div");
     gsap.killTweensOf(".info");
@@ -61,26 +59,6 @@ export default function LandingPage() {
         delay: (el, i) => 3500 + 50 * i,
       });
     }
-
-    // GSAP animations
-    animations.push(
-      gsap.to(".container", {
-        duration: 2,
-        top: isMobile ? "40vh" : "50vh",
-        ease: "expo.inOut",
-        delay: 0.5,
-      })
-    );
-    
-    animations.push(
-      gsap.to(".container", {
-        duration: 2,
-        scale: 1,
-        top: isMobile ? "15vh" : "20vh",
-        ease: "expo.inOut",
-        delay: 3,
-      })
-    );
     
     // Rest of animations remain the same
     animations.push(
@@ -159,11 +137,7 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="hero-img">
-          <img src="/images/drone-hero.png" alt="Drone" />
-        </div>
-      </div>
+      <FloatingDrone />
       <p className="title">REACH THE FULLEST</p>
       <div className="info">
         <p>

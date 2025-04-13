@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import Link from "next/link";
+import FloatingDrone from "@/components/FloatingDrone";
 
 export default function GoalPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -118,6 +118,7 @@ export default function GoalPage() {
           </div>
         </div>
       </div>
+      <FloatingDrone />
       <p className="title">GOAL</p>
       <div className="info mt-8 px-6 max-w-4xl mx-auto">
         <p>
