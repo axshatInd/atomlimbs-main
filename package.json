@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "animejs": "^4.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "gsap": "^3.12.7",
     "next": "15.2.4",
     "react": "^19.0.0",
@@ -18,5 +20,18 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4"
-  }
+  },
+  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "tailwind.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axshatInd/atomlimbs-main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/axshatInd/atomlimbs-main/issues"
+  },
+  "homepage": "https://github.com/axshatInd/atomlimbs-main#readme"
 }

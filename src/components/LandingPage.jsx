@@ -112,6 +112,13 @@ export default function LandingPage() {
     };
   }, [isMobile]);
 
+  const handleRunNow = () => {
+    fetch('http://localhost:3001/run-unity')
+      .then(response => response.text())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+  };
+
   return (
     <main>
       <div className="navbar">
@@ -151,7 +158,7 @@ export default function LandingPage() {
         </p>
       </div>
       <div className="run-now-cta">
-        <button>Run Now</button>
+        <button onClick={handleRunNow}>Run Now</button>
       </div>
       <div className="prev-imgs">
         <div className="prev-img prev-1"></div>
