@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('cors'); // Import the cors package
 const { exec } = require('child_process');
 const app = express();
 const port = 3001; // Use a different port than your React app
+
+app.use(cors()); // Enable CORS for all routes
 
 app.get('/run-unity', (req, res) => {
   // Path to the Unity Hub executable
